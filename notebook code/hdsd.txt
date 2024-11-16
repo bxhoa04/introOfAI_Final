@@ -29,4 +29,36 @@
         Vẽ ma trận nhầm lẫn 
 
 " YOLOV5.ipynb: In ra những thông tin được huấn luyện từ YOLOv5
-        
+        result_dir: Đường dẫn đến thư mục chứa kết quả huấn luyện của YOLOv5.
+        print_image_info_and_show():  In thông tin về từng tệp hình ảnh trong thư mục và hiển thị hình ảnh đó.
+        print_csv_info(): In thông tin từ tệp CSV kết quả huấn luyện và đánh giá.
+        print_evaluation_curve_info_and_show():  In thông tin về các đường cong đánh giá và hiển thị đồ thị.
+        show_images_in_directory(): Hiển thị tất cả các hình ảnh trong thư mục kiểm tra.
+
+        Gọi print_csv_info(result_dir) để in thông tin từ tệp CSV.
+        Gọi print_evaluation_curve_info_and_show(result_dir) để in thông tin và hiển thị đồ thị.
+        Định nghĩa đường dẫn valid_dir và gọi show_images_in_directory(valid_dir) để hiển thị các hình ảnh trong thư mục kiểm tra.
+
+" Crop.py: Đọc labels ảnh và cắt bouding box trên những thông tin về labels
+        Xác định đường dẫn:
+        images_path: Đường dẫn đến thư mục chứa các hình ảnh.
+        labels_path: Đường dẫn đến thư mục chứa các tệp nhãn.
+        output_path: Đường dẫn đến thư mục nơi sẽ lưu trữ các hình ảnh đã cắt.
+
+        Tạo thư mục đầu ra: Sử dụng os.makedirs(output_path, exist_ok=True) để đảm bảo rằng thư mục lưu trữ kết quả tồn tại.
+        Đọc và xử lý từng tệp nhãn: Duyệt qua từng tệp trong thư mục nhãn (labels_path).
+        Đọc tệp nhãn: Mở tệp nhãn và đọc từng dòng, mỗi dòng chứa thông tin về một bounding box.
+        Chuyển đổi tọa độ: Chuyển đổi sang pixel bằng cách nhân với kích thước hình ảnh. Tính toán các tọa độ từ tọa độ trung tâm và kích thước.
+        Cắt và lưu hình ảnh: Nếu bounding box hợp lệ, cắt vùng hình ảnh bằng phương thức crop() của đối tượng hình ảnh.
+
+
+" main.ipynb: Phương thức chính của mô hình , thực hiện phát hiện bằng YOLOv5 và phân loại bằng CNN
+        load_yolov5_model(): Tải mô hình YOLOv5 đã được chuẩn bị.
+        detect_objects():  Sử dụng mô hình YOLOv5 để phát hiện đối tượng từ ảnh.
+        crop_boxes(): Sau khi đã phát hiện, cắt các bounding boxes từ ảnh.
+        preprocess_for_cnn(): Sau khi có được bounding box, hướng đầu ra dữ liệu cho CNN.
+        load_cnn_model() : Tải mô hình CNN đã được huấn luyện từ CNN_forYOLOv5.
+        classify_with_cnn(): Phân loại từng bounding box với CNN.
+        process_images_in_directory(): Thử nghiệm phát hiện phân loại bounding box của mô hình trên 1 tập ảnh gốc.
+        evaluate_combined_model(): Đánh giá tổng quan về mô hình, in báo cáo phân loại, ma trận nhầm lẫn, đường cong ROC và tính AUC.
+
