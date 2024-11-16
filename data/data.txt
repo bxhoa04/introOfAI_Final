@@ -1,2 +1,6 @@
 Link download data:
 https://universe.roboflow.com/braincancer/lung_ct_scan-jb46q
+
+Link Colab for YOLOv5:
+https://colab.research.google.com/drive/1gXfUX6ymsYgpV_33rI8E1jFT4VXv-MxZ?usp=sharing
+
