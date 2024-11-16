@@ -1,0 +1,12 @@
+" CNN.ipynb: Phân loại hình ảnh y tế (CT Scan phổi) với mô hình CNN riêng lẻ
+        Lớp CXRModel:
+        __init__(): Khởi tạo các tham số của mô hình
+        load_data(): Tải ảnh và nhãn từ thư mục
+        build_model(): Xây dựng kiến trúc mạng CNN
+        train(): Huấn luyện mô hình, vẽ biểu đồ quá trình huấn luyện
+        evaluate(): Đánh giá mô hình trên tập test
+        plot_history(): Vẽ biểu đồ độ chính xác và mất mát
+        save_model(): Lưu mô hình đã huấn luyện
+" CNN_forYOLO.ipnyb: 
+
+
